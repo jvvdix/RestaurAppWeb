@@ -1,0 +1,16 @@
+layout.component.scss :host {
+  display: block;
+  min-height: 100vh;
+}
+
+// Este es el ajuste clave:
+// Agrega un padding-top al contenedor para compensar la altura del header fijo
+.content-container {
+  padding-top: 150px; // Esto debe ser mayor o igual a la altura del header
+  width: 100%;
+  padding-left: 7%;
+  padding-right: 7%;
+  box-sizing: border-box; // Asegura que el padding no agregue ancho adicional
+}
+
+// Si el contenido se ve muy abajo, puedes ajustar este valor de padding-top

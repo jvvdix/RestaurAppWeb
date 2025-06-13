@@ -1,0 +1,67 @@
+<div class="entrantes-container">
+  <div class="menu-header">
+    <div class="section-title">Entrantes</div>
+    <h2 class="menu-subtitle-main">Nuestros Entrantes</h2>
+    <div class="menu-divider"></div>
+    <p class="menu-subtitle">
+      Comenzamos la experiencia culinaria con una selección de aperitivos que
+      despiertan los sentidos
+    </p>
+  </div>
+
+  <div class="entrantes-grid">
+    <mat-card
+      *ngFor="let entrante of entrantes"
+      class="entrante-card"
+      [ngClass]="{
+        recomendado: entrante.esRecomendado,
+        premium: entrante.esPremium
+      }"
+    >
+      <div class="imagen-container">
+        <img
+          mat-card-image
+          [src]="entrante.imagen"
+          [alt]="entrante.nombre"
+          class="entrante-imagen"
+        />
+        <div class="precio-overlay">
+          <span class="precio">{{ entrante.precio }}€</span>
+        </div>
+      </div>
+
+      <mat-card-content class="card-content">
+        <div class="entrante-header">
+          <h3 class="entrante-nombre">{{ entrante.nombre }}</h3>
+        </div>
+        <p class="entrante-descripcion">{{ entrante.descripcion }}</p>
+
+        <div class="tags-container">
+          <div class="chip-set">
+            <ng-container *ngFor="let tag of entrante.tags">
+              <span
+                class="entrante-tag"
+                *ngIf="!['Recomendado', 'Premium'].includes(tag)"
+              >
+                {{ tag }}
+              </span>
+
+              <span
+                class="tag-especial recomendado"
+                *ngIf="tag === 'Recomendado'"
+              >
+                <span class="material-icons">star</span>
+                Recomendado
+              </span>
+
+              <span class="tag-especial premium" *ngIf="tag === 'Premium'">
+                <span class="material-icons">diamond</span>
+                Premium
+              </span>
+            </ng-container>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

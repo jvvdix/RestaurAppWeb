@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.entrantes-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+}
+
+/* Header del menú mejorado */
+.menu-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  padding-top: 5%;
+}
+
+.menu-header::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #e9bd8c 50%,
+    transparent 100%
+  );
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #e9bd8c 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.menu-subtitle-main {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.menu-divider {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #e9bd8c 0%, #d4a574 100%);
+  margin: 2rem auto;
+  border-radius: 2px;
+  position: relative;
+}
+
+.menu-divider::before,
+.menu-divider::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #e9bd8c;
+  border-radius: 50%;
+  top: -2px;
+}
+
+.menu-divider::before {
+  left: -12px;
+}
+
+.menu-divider::after {
+  right: -12px;
+}
+
+.menu-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid de entrantes elegante */
+.entrantes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* Cards rediseñadas con estilo premium */
+.entrante-card {
+  background: linear-gradient(
+    135deg,
+    rgba(17, 17, 17, 0.95) 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.entrante-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #e9bd8c 0%, #d4a574 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.entrante-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: rgba(233, 189, 140, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(233, 189, 140, 0.2);
+}
+
+.entrante-card:hover::before {
+  opacity: 1;
+}
+
+/* CORREGIDO: Cards especiales con indicadores sutiles, hover normal */
+.entrante-card.recomendado {
+  border-color: rgba(233, 189, 140, 0.2);
+}
+
+.entrante-card.recomendado:hover::before {
+  opacity: 1;
+}
+
+.entrante-card.premium {
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+.entrante-card.premium:hover::before {
+  opacity: 1;
+}
+
+.imagen-container {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.entrante-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  filter: brightness(0.85);
+}
+
+.entrante-card:hover .entrante-imagen {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+.precio-overlay {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid rgba(233, 189, 140, 0.4);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.entrante-card:hover .precio-overlay {
+  transform: scale(1);
+}
+
+.precio {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e9bd8c;
+  letter-spacing: 1px;
+}
+
+/* Contenido de la card */
+.card-content {
+  padding: 2.5rem;
+}
+
+.entrante-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.entrante-nombre {
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.entrante-descripcion {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+
+/* Tags mejoradas */
+.tags-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.chip-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.entrante-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.entrante-tag:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.tag-especial {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.tag-especial.recomendado {
+  background: linear-gradient(
+    135deg,
+    rgba(233, 189, 140, 0.2) 0%,
+    rgba(212, 165, 116, 0.5) 100%
+  );
+  color: #e9bd8c;
+  border-radius: 20px;
+}
+
+.tag-especial.premium {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.3) 0%,
+    rgba(255, 195, 0, 0.6) 100%
+  );
+  color: #ffd700;
+  border-radius: 20px;
+}
