@@ -69,7 +69,7 @@ body {
 
 .menu-divider {
   width: 120px;
-  height: 4px;
+  height: 1px;
   background: linear-gradient(90deg, #e9bd8c 0%, #d4a574 100%);
   margin: 2rem auto;
   border-radius: 2px;
@@ -80,8 +80,8 @@ body {
 .menu-divider::after {
   content: "";
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   background: #e9bd8c;
   border-radius: 50%;
   top: -2px;
@@ -129,22 +129,9 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
-.entrante-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #e9bd8c 0%, #d4a574 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
 .entrante-card:hover {
   transform: translateY(-15px) scale(1.02);
-  border-color: rgba(233, 189, 140, 0.4);
+
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(233, 189, 140, 0.2);
 }
 
@@ -152,7 +139,6 @@ body {
   opacity: 1;
 }
 
-/* CORREGIDO: Cards especiales con indicadores sutiles, hover normal */
 .entrante-card.recomendado {
   border-color: rgba(233, 189, 140, 0.2);
 }
@@ -273,32 +259,4 @@ body {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-}
-
-.tag-especial {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.2rem;
-}
-
-.tag-especial.recomendado {
-  background: linear-gradient(
-    135deg,
-    rgba(233, 189, 140, 0.2) 0%,
-    rgba(212, 165, 116, 0.5) 100%
-  );
-  color: #e9bd8c;
-  border-radius: 20px;
-}
-
-.tag-especial.premium {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 215, 0, 0.3) 0%,
-    rgba(255, 195, 0, 0.6) 100%
-  );
-  color: #ffd700;
-  border-radius: 20px;
 }
