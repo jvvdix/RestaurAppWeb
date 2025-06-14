@@ -10,14 +10,7 @@
   </div>
 
   <div class="entrantes-grid">
-    <mat-card
-      *ngFor="let entrante of entrantes"
-      class="entrante-card"
-      [ngClass]="{
-        recomendado: entrante.esRecomendado,
-        premium: entrante.esPremium
-      }"
-    >
+    <mat-card *ngFor="let entrante of entrantes" class="entrante-card">
       <div class="imagen-container">
         <img
           mat-card-image
@@ -35,32 +28,6 @@
           <h3 class="entrante-nombre">{{ entrante.nombre }}</h3>
         </div>
         <p class="entrante-descripcion">{{ entrante.descripcion }}</p>
-
-        <div class="tags-container">
-          <div class="chip-set">
-            <ng-container *ngFor="let tag of entrante.tags">
-              <span
-                class="entrante-tag"
-                *ngIf="!['Recomendado', 'Premium'].includes(tag)"
-              >
-                {{ tag }}
-              </span>
-
-              <span
-                class="tag-especial recomendado"
-                *ngIf="tag === 'Recomendado'"
-              >
-                <span class="material-icons">star</span>
-                Recomendado
-              </span>
-
-              <span class="tag-especial premium" *ngIf="tag === 'Premium'">
-                <span class="material-icons">diamond</span>
-                Premium
-              </span>
-            </ng-container>
-          </div>
-        </div>
       </mat-card-content>
     </mat-card>
   </div>

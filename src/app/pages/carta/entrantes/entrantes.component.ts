@@ -34,12 +34,21 @@ export class EntrantesComponent implements OnInit {
   private cargarEntrantes(): void {
     this.entrantesService.getEntrantes().subscribe({
       next: (entrantes) => {
-        this.entrantes = entrantes;
+        this.entrantes = entrantes.map((e) => ({
+          ...e,
+          tags: [], // si quieres luego añadir etiquetas personalizadas
+          esRecomendado: false,
+          esPremium: false,
+        }));
       },
       error: (error) => {
         console.error('Error al cargar entrantes:', error);
       },
     });
+  }
+
+  getImagenUrl(nombreArchivo: string): string {
+    return `http://127.0.0.1:8000/uploads/productoImg/${nombreArchivo}`;
   }
 
   onVerDetalles(entrante: Entrante): void {
