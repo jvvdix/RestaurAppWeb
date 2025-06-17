@@ -58,5 +58,25 @@
     "ADDRESS": "C. Maestro Pedro Perez Abadia, 2A, 30100 Murcia",
     "COPYRIGHT": "© 2025 DAW José Planes. Todos los derechos reservados.",
     "MAP_TITLE": "Ubicación en IES José Planes"
+  },
+  "DRINKS_SECTION": {
+    "TITLE": "Bebidas",
+    "SUBTITLE": "Acompaña tus platos con nuestra selección de bebidas delicadamente escogidas"
+  },
+  "STARTERS": {
+    "TITLE": "Entrantes",
+    "SUBTITLE": "Comenzamos la experiencia culinaria con una selección de aperitivos que despiertan los sentidos"
+  },
+  "FIRST_COURSES": {
+    "TITLE": "Primeros",
+    "SUBTITLE": "Descubre nuestra selección de primeros platos, pensados para abrir el apetito y sorprenderte"
+  },
+  "MAIN_COURSES": {
+    "TITLE": "Segundos",
+    "SUBTITLE": "Continuamos la experiencia culinaria con una selección de platos perfectamente pensados para tu disfrute"
+  },
+  "DESSERTS": {
+    "TITLE": "Postres",
+    "SUBTITLE": "Endulza tu experiencia con nuestra selección de postres caseros"
   }
 }

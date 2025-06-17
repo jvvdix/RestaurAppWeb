@@ -2,9 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { LanguageService } from '../../services/languaje.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -18,12 +17,8 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
-    private translateService: TranslateService
-  ) {
-    // Establece el idioma por defecto
-    this.translateService.setDefaultLang('es');
-    this.translateService.use('es');
-  }
+    private languageService: LanguageService
+  ) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -38,10 +33,11 @@ export class HeaderComponent {
     return this.menuOpen;
   }
 
-  // Método para navegar a diferentes secciones
   navigateToSection(section: string) {
     this.menuOpen = false;
-    this.scrollToElement(section);
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => this.scrollToElement(section), 100);
+    });
   }
 
   private scrollToElement(sectionId: string): void {
@@ -56,16 +52,14 @@ export class HeaderComponent {
     }
   }
 
-  // Métodos para cambio de idioma simplificado
   getCurrentLanguageName(): string {
-    const currentLang = this.translateService.currentLang || 'es';
+    const currentLang = this.languageService.getCurrentLanguage();
     return currentLang === 'es' ? 'ESP' : 'ENG';
   }
 
-  // Método simplificado para alternar idioma
   toggleLanguage(): void {
-    const currentLang = this.translateService.currentLang || 'es';
+    const currentLang = this.languageService.getCurrentLanguage();
     const newLang = currentLang === 'es' ? 'en' : 'es';
-    this.translateService.use(newLang);
+    this.languageService.changeLanguage(newLang);
   }
 }

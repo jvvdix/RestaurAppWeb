@@ -1,20 +1,33 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
-  constructor(private translateService: TranslateService) {}
+  private languageSubject = new BehaviorSubject<string>(
+    this.getSavedLanguage()
+  );
+  language$ = this.languageSubject.asObservable();
 
-  // cambiar idioma
-  changeLanguage(language: string) {
-    this.translateService.use(language); // cambia el idioma usando ngx-translate
-    localStorage.setItem('language', language); // guarda el idioma en localStorage para persistencia
+  constructor(private translateService: TranslateService) {
+    const savedLang = this.getSavedLanguage();
+    this.translateService.setDefaultLang('es');
+    this.translateService.use(savedLang);
   }
 
-  // con esto se obtiene el idioma actual
+  changeLanguage(language: string) {
+    this.translateService.use(language);
+    localStorage.setItem('language', language);
+    this.languageSubject.next(language);
+  }
+
   getCurrentLanguage(): string {
-    return this.translateService.currentLang;
+    return this.translateService.currentLang || 'es';
+  }
+
+  private getSavedLanguage(): string {
+    return localStorage.getItem('language') || 'es';
   }
 }

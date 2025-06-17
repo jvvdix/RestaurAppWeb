@@ -27,14 +27,8 @@
       </div>
     </div>
     <div class="botones_landpage">
-      <a
-        mat-fab
-        extended
-        class="btn-menu"
-        href="/menu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <!-- el router link nos permitira cargar el menu usando el RouterModule de angular, permitiendo no tener que recargar la página -->
+      <a mat-fab extended class="btn-menu" [routerLink]="['/menu']">
         <mat-icon>menu_book</mat-icon>
         {{ "LANDPAGE.MENU" | translate }}
       </a>

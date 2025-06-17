@@ -58,5 +58,25 @@
     "ADDRESS": "C. Maestro Pedro Perez Abadia, 2A, 30100 Murcia",
     "COPYRIGHT": "© 2025 DAW José Planes. All rights reserved.",
     "MAP_TITLE": "Location at IES José Planes"
+  },
+  "DRINKS_SECTION": {
+    "TITLE": "Drinks",
+    "SUBTITLE": "Accompany your dishes with our selection of delicately chosen beverages"
+  },
+  "STARTERS": {
+    "TITLE": "Starters",
+    "SUBTITLE": "We begin the culinary experience with a selection of appetizers that awaken the senses"
+  },
+  "FIRST_COURSES": {
+    "TITLE": "First Courses",
+    "SUBTITLE": "Discover our selection of first courses, designed to whet your appetite and surprise you"
+  },
+  "MAIN_COURSES": {
+    "TITLE": "Main Courses",
+    "SUBTITLE": "We continue the culinary experience with a selection of dishes perfectly crafted for your enjoyment"
+  },
+  "DESSERTS": {
+    "TITLE": "Desserts",
+    "SUBTITLE": "Sweeten your experience with our selection of homemade desserts"
   }
 }

@@ -7,6 +7,7 @@ import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-landpage',
@@ -18,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     AboutComponent,
     ContactComponent,
     TranslateModule,
+    RouterModule,
   ],
   templateUrl: './landpage.component.html',
   styleUrl: './landpage.component.scss',
