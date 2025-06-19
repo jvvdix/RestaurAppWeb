@@ -62,9 +62,6 @@ export class BebidasComponent implements OnInit, OnDestroy {
       next: async (bebidas) => {
         this.bebidasOriginales = bebidas.map((e) => ({
           ...e,
-          tags: [],
-          esRecomendado: false,
-          esPremium: false,
         }));
 
         // aplicar traducción inicial

@@ -58,9 +58,6 @@ export class PostresComponent implements OnInit, OnDestroy {
       next: async (postres) => {
         this.postresOriginales = postres.map((p) => ({
           ...p,
-          tags: [],
-          esRecomendado: false,
-          esPremium: false,
         }));
 
         const currentLang = this.languageService.getCurrentLanguage();

@@ -63,9 +63,6 @@ export class SegundosComponent implements OnInit, OnDestroy {
       next: async (segundos) => {
         this.segundosOriginales = segundos.map((s) => ({
           ...s,
-          tags: [],
-          esRecomendado: false,
-          esPremium: false,
         }));
 
         // aplicar traducción inicial

@@ -61,9 +61,6 @@ export class EntrantesComponent implements OnInit, OnDestroy {
       next: async (entrantes) => {
         this.entrantesOriginales = entrantes.map((e) => ({
           ...e,
-          tags: [],
-          esRecomendado: false,
-          esPremium: false,
         }));
 
         const currentLang = this.languageService.getCurrentLanguage();

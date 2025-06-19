@@ -14,6 +14,7 @@ export class AutoTranslateService {
     console.log('AutoTranslateService inicializado con Apertium');
   }
 
+  //funcion que se encargará de traducir
   async translate(
     text: string,
     targetLang: string,
@@ -64,6 +65,7 @@ export class AutoTranslateService {
     this.cache.clear();
   }
 
+  //comprobamos que la api esté en funcionamiento
   async testConnection(): Promise<boolean> {
     try {
       const testText = 'Hola mundo';

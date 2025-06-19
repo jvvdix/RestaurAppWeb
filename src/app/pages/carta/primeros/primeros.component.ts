@@ -58,9 +58,6 @@ export class PrimerosComponent implements OnInit, OnDestroy {
       next: async (primeros) => {
         this.primerosOriginales = primeros.map((p) => ({
           ...p,
-          tags: [],
-          esRecomendado: false,
-          esPremium: false,
         }));
 
         const currentLang = this.languageService.getCurrentLanguage();
