@@ -30,11 +30,11 @@
     "EMAIL_LABEL": "Email",
     "EMAIL_PLACEHOLDER": "tu.email@ejemplo.com",
     "SUBJECT_LABEL": "Asunto",
-    "SUBJECT_PLACEHOLDER": "Selecciona un asunto",
+    "SUBJECT_PLACEHOLDER": "Seleccione un asunto",
     "MESSAGE_LABEL": "Mensaje",
     "MESSAGE_PLACEHOLDER": "Escribe tu mensaje aquí...",
     "SUBJECT_OPTIONS": {
-      "DEFAULT": "Selecciona un asunto",
+      "DEFAULT": "Seleccione un asunto",
       "RESERVA": "Consulta sobre reservas",
       "EVENTO": "Eventos y celebraciones",
       "MENU": "Consulta sobre el menú",

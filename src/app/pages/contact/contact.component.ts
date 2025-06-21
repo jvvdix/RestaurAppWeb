@@ -1,12 +1,12 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
-  ViewChild,
-  ChangeDetectorRef,
   NgZone,
+  ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
+  styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
@@ -38,14 +38,19 @@ export class ContactComponent {
     const form = this.contactForm.nativeElement;
     const formData = new FormData(form);
 
+    const subjectSelect = form.querySelector(
+      'select[name="subject"]'
+    ) as HTMLSelectElement;
+    const selectedSubject =
+      subjectSelect?.value || 'Nuevo mensaje desde la web del restaurante';
+
+    formData.set('_subject', selectedSubject);
+
     if (!formData.has('_captcha')) {
       formData.append('_captcha', 'false');
     }
     if (!formData.has('_next')) {
       formData.append('_next', 'false');
-    }
-    if (!formData.has('_subject')) {
-      formData.append('_subject', 'Nuevo mensaje desde la web del restaurante');
     }
 
     fetch(form.action, {
