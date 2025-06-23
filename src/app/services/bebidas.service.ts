@@ -16,8 +16,8 @@ export interface Bebida {
   providedIn: 'root',
 })
 export class BebidasService {
-  private apiUrl = 'http://127.0.0.1:8001/api/productos';
-  private imagenBaseUrl = 'http://127.0.0.1:8001/uploads/productoImg/';
+  private apiUrl = 'http://127.0.0.1:8000/api/productos';
+  private imagenBaseUrl = 'http://127.0.0.1:8000/uploads/productoImg/';
 
   constructor(private http: HttpClient) {}
 

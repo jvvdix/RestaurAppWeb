@@ -21,7 +21,7 @@ export class EntrantesService {
 
   constructor(private http: HttpClient) {}
 
-  getEntrantes(categoriaNombre: string = 'Primeros'): Observable<Entrante[]> {
+  getEntrantes(categoriaNombre: string = 'Entrantes'): Observable<Entrante[]> {
     const params = new HttpParams().set('categoria', categoriaNombre);
     return this.http.get<Entrante[]>(this.apiUrl, { params }).pipe(
       map((entrantes) =>
@@ -33,7 +33,7 @@ export class EntrantesService {
     );
   }
 
-  // Método auxiliar para verificar si una imagen existe
+  //  para verificar si una imagen existe
   verificarImagen(imagenUrl: string): Observable<boolean> {
     return this.http.head(imagenUrl, { observe: 'response' }).pipe(
       map((response) => response.status === 200),
